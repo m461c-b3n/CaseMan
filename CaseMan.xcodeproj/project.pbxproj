@@ -44,6 +44,7 @@
 		417C9ABC23AA4D3F00F1A7A9 /* CaseMan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CaseMan.entitlements; sourceTree = "<group>"; };
 		41AF98B323B49FBD00F162F2 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		41AF98B423B49FBD00F162F2 /* Logging+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Logging+Extensions.swift"; sourceTree = "<group>"; };
+		41AF98B723B4DC6400F162F2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 		417C9A8E23AA485D00F1A7A9 = {
 			isa = PBXGroup;
 			children = (
+				41AF98B723B4DC6400F162F2 /* README.md */,
 				41AF98B223B49FBD00F162F2 /* Logging */,
 				417C9A9923AA485D00F1A7A9 /* CaseMan */,
 				417C9AB023AA485F00F1A7A9 /* CaseManTests */,

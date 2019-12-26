@@ -27,50 +27,67 @@ struct ContentView: View {
     private let snakeCaseToSingleWords: StringToSingleWordsTransformer = { $0.lowercased().replacingOccurrences(of: "_", with: " ") }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Group {
-                createEditableBlock(header: "Single Words", content: $singleWords, tranformer: { $0.lowercased() })
-                
-                createEditableBlock(header: "UpperCamelCase", content: $upperCamelCase, tranformer: camelCaseToSingleWords)
-                createEditableBlock(header: "lowerCamelCase", content: $lowerCamelCase, tranformer: camelCaseToSingleWords)
-                
-                createEditableBlock(header: "lower_snake_case", content: $lowerSnakeCase, tranformer: snakeCaseToSingleWords)
-                createEditableBlock(header: "UPPER_SNAKE_CASE", content: $upperSnakeCase, tranformer: snakeCaseToSingleWords)
-            }
+        VStack() {
             
-            Group {
-                createStaticBlock(header: "CAPITALCASE", content: $upperCase)
-                createStaticBlock(header: "lowercase", content: $lowerCase)
+            Image("case-man")
+                .padding()
+            Spacer()
+            
+            ScrollView(.vertical) {
+                VStack(alignment: .leading) {
+                    Group {
+                        createEditableBlock(header: "single words", content: $singleWords, tranformer: { $0.lowercased() })
+                        
+                        createEditableBlock(header: "UpperCamelCase", content: $upperCamelCase, tranformer: camelCaseToSingleWords)
+                        createEditableBlock(header: "lowerCamelCase", content: $lowerCamelCase, tranformer: camelCaseToSingleWords)
+                        
+                        createEditableBlock(header: "lower_snake_case", content: $lowerSnakeCase, tranformer: snakeCaseToSingleWords)
+                        createEditableBlock(header: "UPPER_SNAKE_CASE", content: $upperSnakeCase, tranformer: snakeCaseToSingleWords)
+                    }
+                    
+                    Group {
+                        createStaticBlock(header: "CAPITALCASE (tap to copy)", content: $upperCase)
+                        createStaticBlock(header: "lowercase (tap to copy)", content: $lowerCase)
+                    }
+                }.padding()
             }
-        }.padding()
+        }
     }
     
     private func createEditableBlock(header: String, content: Binding<String>, tranformer: @escaping StringToSingleWordsTransformer = { $0 }) -> some View {
         Group {
             Text("\(header):")
-                .modifier(CaptionTextFieldStyle())
-            TextField(header, text: content, onCommit: {
-                self.setCases(with: tranformer(content.wrappedValue))
-            })
-                .padding()
-                .copyOnTap(content)
-                .modifier(ContentTextFieldStyle())
+                .modifier(CaptionTextStyle())
+            HStack() {
+                TextField(header, text: content, onCommit: {
+                    self.setCases(with: tranformer(content.wrappedValue))
+                })
+                    .padding()
+                    .copyOnTap(content)
+                    .modifier(ContentTextFieldStyle())
+                Button(action: {
+                    UIPasteboard.general.string = content.wrappedValue
+                }) {
+                    Text("copy").foregroundColor(Color("ContentTextColor"))
+                }
+            }
         }
     }
     
     private func createStaticBlock(header: String, content: Binding<String>) -> some View {
         Group {
             Text("\(header):")
-                .modifier(CaptionTextFieldStyle())
+                .modifier(CaptionTextStyle())
             Text("\(content.wrappedValue)")
                 .padding()
                 .copyOnTap(content)
+                .modifier(ContentTextStyle())
         }
     }
     
     // neutralized String is lowercased words seperated by single spaces
     private func setCases(with singleWordString: String) {
-        logDebug("signle word string: %{PUBLIC}@", singleWordString)
+        logDebug("single word string: %{PUBLIC}@", singleWordString)
         singleWords = singleWordString
         lowerSnakeCase = singleWordString.replacingOccurrences(of: " ", with: "_")
         upperSnakeCase = lowerSnakeCase.uppercased()
@@ -81,10 +98,11 @@ struct ContentView: View {
     }
 }
 
-struct CaptionTextFieldStyle: ViewModifier {
+struct CaptionTextStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundColor(Color.gray)
+            .font(.system(.caption, design: .monospaced))
     }
 }
 
@@ -92,8 +110,20 @@ struct ContentTextFieldStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundColor(Color.white)
+            .background(RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(Color.black))
+            .font(.system(.headline, design: .monospaced))
     }
 }
+
+struct ContentTextStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(Color("ContentTextColor"))
+            .font(.system(.headline, design: .monospaced))
+    }
+}
+
 
 extension View {
     public func copyOnTap(_ text: Binding<String>) -> some View {
