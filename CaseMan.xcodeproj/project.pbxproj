@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		417C9AA423AA485F00F1A7A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417C9AA323AA485F00F1A7A9 /* Preview Assets.xcassets */; };
 		417C9AA723AA485F00F1A7A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417C9AA523AA485F00F1A7A9 /* LaunchScreen.storyboard */; };
 		417C9AB223AA485F00F1A7A9 /* CaseManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C9AB123AA485F00F1A7A9 /* CaseManTests.swift */; };
+		417C9AC023ABC35300F1A7A9 /* StringExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 417C9ABF23ABC35300F1A7A9 /* StringExtensions */; };
+		41AF98B523B49FBD00F162F2 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AF98B323B49FBD00F162F2 /* Logging.swift */; };
+		41AF98B623B49FBD00F162F2 /* Logging+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AF98B423B49FBD00F162F2 /* Logging+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		417C9AAD23AA485F00F1A7A9 /* CaseManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaseManTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		417C9AB123AA485F00F1A7A9 /* CaseManTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseManTests.swift; sourceTree = "<group>"; };
 		417C9AB323AA485F00F1A7A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		417C9ABC23AA4D3F00F1A7A9 /* CaseMan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CaseMan.entitlements; sourceTree = "<group>"; };
+		41AF98B323B49FBD00F162F2 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		41AF98B423B49FBD00F162F2 /* Logging+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Logging+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				417C9AC023ABC35300F1A7A9 /* StringExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +68,7 @@
 		417C9A8E23AA485D00F1A7A9 = {
 			isa = PBXGroup;
 			children = (
+				41AF98B223B49FBD00F162F2 /* Logging */,
 				417C9A9923AA485D00F1A7A9 /* CaseMan */,
 				417C9AB023AA485F00F1A7A9 /* CaseManTests */,
 				417C9A9823AA485D00F1A7A9 /* Products */,
@@ -79,6 +87,7 @@
 		417C9A9923AA485D00F1A7A9 /* CaseMan */ = {
 			isa = PBXGroup;
 			children = (
+				417C9ABC23AA4D3F00F1A7A9 /* CaseMan.entitlements */,
 				417C9A9A23AA485D00F1A7A9 /* AppDelegate.swift */,
 				417C9A9C23AA485D00F1A7A9 /* SceneDelegate.swift */,
 				417C9A9E23AA485D00F1A7A9 /* ContentView.swift */,
@@ -107,6 +116,15 @@
 			path = CaseManTests;
 			sourceTree = "<group>";
 		};
+		41AF98B223B49FBD00F162F2 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				41AF98B323B49FBD00F162F2 /* Logging.swift */,
+				41AF98B423B49FBD00F162F2 /* Logging+Extensions.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +141,9 @@
 			dependencies = (
 			);
 			name = CaseMan;
+			packageProductDependencies = (
+				417C9ABF23ABC35300F1A7A9 /* StringExtensions */,
+			);
 			productName = CaseMan;
 			productReference = 417C9A9723AA485D00F1A7A9 /* CaseMan.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +194,9 @@
 				Base,
 			);
 			mainGroup = 417C9A8E23AA485D00F1A7A9;
+			packageReferences = (
+				417C9ABE23ABC35300F1A7A9 /* XCRemoteSwiftPackageReference "swift-string-extensions" */,
+			);
 			productRefGroup = 417C9A9823AA485D00F1A7A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -209,8 +233,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				417C9A9B23AA485D00F1A7A9 /* AppDelegate.swift in Sources */,
+				41AF98B623B49FBD00F162F2 /* Logging+Extensions.swift in Sources */,
 				417C9A9D23AA485D00F1A7A9 /* SceneDelegate.swift in Sources */,
 				417C9A9F23AA485D00F1A7A9 /* ContentView.swift in Sources */,
+				41AF98B523B49FBD00F162F2 /* Logging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +388,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CaseMan/CaseMan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CaseMan/Preview Content\"";
 				DEVELOPMENT_TEAM = 52835LBYCZ;
 				ENABLE_PREVIEWS = YES;
@@ -373,6 +401,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.nerdoccodinger.CaseMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,7 +411,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CaseMan/CaseMan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CaseMan/Preview Content\"";
 				DEVELOPMENT_TEAM = 52835LBYCZ;
 				ENABLE_PREVIEWS = YES;
@@ -393,6 +424,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.nerdoccodinger.CaseMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -473,6 +505,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		417C9ABE23ABC35300F1A7A9 /* XCRemoteSwiftPackageReference "swift-string-extensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Codinger386/swift-string-extensions.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		417C9ABF23ABC35300F1A7A9 /* StringExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 417C9ABE23ABC35300F1A7A9 /* XCRemoteSwiftPackageReference "swift-string-extensions" */;
+			productName = StringExtensions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 417C9A8F23AA485D00F1A7A9 /* Project object */;
 }
