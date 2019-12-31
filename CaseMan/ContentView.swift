@@ -8,6 +8,7 @@
 
 import SwiftUI
 import StringExtensions
+import Combine
 
 struct ContentView: View {
 
@@ -32,6 +33,7 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
 
                     Group {
+                        
                         createEditableBlock(header: "single words", content: $singleWords, variableNameCase: .words)
                         
                         createEditableBlock(header: "lowerCamelCase", content: $lowerCamelCase, variableNameCase: .lowerCamel)
@@ -62,7 +64,6 @@ struct ContentView: View {
                     self.setCases(with: content.wrappedValue, variableNameCase: variableNameCase)
                 }
                     .padding()
-                    .copyOnTap(content)
                     .modifier(ContentTextFieldStyle())
                 Button(action: {
                     UIPasteboard.general.string = content.wrappedValue
@@ -136,6 +137,12 @@ extension View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView(singleWords: "my fancy var")
+                .environment(\.colorScheme, .dark)
+        
+            ContentView(singleWords: "my fancy var")
+                .environment(\.colorScheme, .light)
+        }
     }
 }

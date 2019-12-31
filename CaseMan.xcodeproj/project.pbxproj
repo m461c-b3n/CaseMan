@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		416B78B223BB544D00F2F4FC /* CaseManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416B78B123BB544D00F2F4FC /* CaseManUITests.swift */; };
 		417C9A9B23AA485D00F1A7A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C9A9A23AA485D00F1A7A9 /* AppDelegate.swift */; };
 		417C9A9D23AA485D00F1A7A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C9A9C23AA485D00F1A7A9 /* SceneDelegate.swift */; };
 		417C9A9F23AA485D00F1A7A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C9A9E23AA485D00F1A7A9 /* ContentView.swift */; };
@@ -20,6 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		416B78B423BB544D00F2F4FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 417C9A8F23AA485D00F1A7A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 417C9A9623AA485D00F1A7A9;
+			remoteInfo = CaseMan;
+		};
 		417C9AAE23AA485F00F1A7A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 417C9A8F23AA485D00F1A7A9 /* Project object */;
@@ -30,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		416B78AF23BB544D00F2F4FC /* CaseManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaseManUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		416B78B123BB544D00F2F4FC /* CaseManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseManUITests.swift; sourceTree = "<group>"; };
+		416B78B323BB544D00F2F4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		417C9A9723AA485D00F1A7A9 /* CaseMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaseMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		417C9A9A23AA485D00F1A7A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		417C9A9C23AA485D00F1A7A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +59,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		416B78AC23BB544D00F2F4FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		417C9A9423AA485D00F1A7A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -66,12 +84,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		416B78B023BB544D00F2F4FC /* CaseManUITests */ = {
+			isa = PBXGroup;
+			children = (
+				416B78B123BB544D00F2F4FC /* CaseManUITests.swift */,
+				416B78B323BB544D00F2F4FC /* Info.plist */,
+			);
+			path = CaseManUITests;
+			sourceTree = "<group>";
+		};
 		417C9A8E23AA485D00F1A7A9 = {
 			isa = PBXGroup;
 			children = (
 				41AF98B723B4DC6400F162F2 /* README.md */,
 				417C9A9923AA485D00F1A7A9 /* CaseMan */,
 				417C9AB023AA485F00F1A7A9 /* CaseManTests */,
+				416B78B023BB544D00F2F4FC /* CaseManUITests */,
 				417C9A9823AA485D00F1A7A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +109,7 @@
 			children = (
 				417C9A9723AA485D00F1A7A9 /* CaseMan.app */,
 				417C9AAD23AA485F00F1A7A9 /* CaseManTests.xctest */,
+				416B78AF23BB544D00F2F4FC /* CaseManUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +159,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		416B78AE23BB544D00F2F4FC /* CaseManUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 416B78B623BB544D00F2F4FC /* Build configuration list for PBXNativeTarget "CaseManUITests" */;
+			buildPhases = (
+				416B78AB23BB544D00F2F4FC /* Sources */,
+				416B78AC23BB544D00F2F4FC /* Frameworks */,
+				416B78AD23BB544D00F2F4FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				416B78B523BB544D00F2F4FC /* PBXTargetDependency */,
+			);
+			name = CaseManUITests;
+			productName = CaseManUITests;
+			productReference = 416B78AF23BB544D00F2F4FC /* CaseManUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		417C9A9623AA485D00F1A7A9 /* CaseMan */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 417C9AB623AA485F00F1A7A9 /* Build configuration list for PBXNativeTarget "CaseMan" */;
@@ -178,6 +225,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "nerdoc & codinger GmbH";
 				TargetAttributes = {
+					416B78AE23BB544D00F2F4FC = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 417C9A9623AA485D00F1A7A9;
+					};
 					417C9A9623AA485D00F1A7A9 = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -205,11 +256,19 @@
 			targets = (
 				417C9A9623AA485D00F1A7A9 /* CaseMan */,
 				417C9AAC23AA485F00F1A7A9 /* CaseManTests */,
+				416B78AE23BB544D00F2F4FC /* CaseManUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		416B78AD23BB544D00F2F4FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		417C9A9523AA485D00F1A7A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +289,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		416B78AB23BB544D00F2F4FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416B78B223BB544D00F2F4FC /* CaseManUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		417C9A9323AA485D00F1A7A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,6 +320,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		416B78B523BB544D00F2F4FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 417C9A9623AA485D00F1A7A9 /* CaseMan */;
+			targetProxy = 416B78B423BB544D00F2F4FC /* PBXContainerItemProxy */;
+		};
 		417C9AAF23AA485F00F1A7A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 417C9A9623AA485D00F1A7A9 /* CaseMan */;
@@ -272,6 +344,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		416B78B723BB544D00F2F4FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 52835LBYCZ;
+				INFOPLIST_FILE = CaseManUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.nerdoccodinger.CaseManUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CaseMan;
+			};
+			name = Debug;
+		};
+		416B78B823BB544D00F2F4FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 52835LBYCZ;
+				INFOPLIST_FILE = CaseManUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.nerdoccodinger.CaseManUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CaseMan;
+			};
+			name = Release;
+		};
 		417C9AB423AA485F00F1A7A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -479,6 +589,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		416B78B623BB544D00F2F4FC /* Build configuration list for PBXNativeTarget "CaseManUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				416B78B723BB544D00F2F4FC /* Debug */,
+				416B78B823BB544D00F2F4FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		417C9A9223AA485D00F1A7A9 /* Build configuration list for PBXProject "CaseMan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
