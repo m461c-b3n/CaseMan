@@ -70,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				41AF98B723B4DC6400F162F2 /* README.md */,
-				41AF98B223B49FBD00F162F2 /* Logging */,
 				417C9A9923AA485D00F1A7A9 /* CaseMan */,
 				417C9AB023AA485F00F1A7A9 /* CaseManTests */,
 				417C9A9823AA485D00F1A7A9 /* Products */,
@@ -89,6 +88,7 @@
 		417C9A9923AA485D00F1A7A9 /* CaseMan */ = {
 			isa = PBXGroup;
 			children = (
+				41AF98B223B49FBD00F162F2 /* Logging */,
 				417C9ABC23AA4D3F00F1A7A9 /* CaseMan.entitlements */,
 				417C9A9A23AA485D00F1A7A9 /* AppDelegate.swift */,
 				417C9A9C23AA485D00F1A7A9 /* SceneDelegate.swift */,
@@ -514,7 +514,7 @@
 			repositoryURL = "git@github.com:Codinger386/swift-string-extensions.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
+				minimumVersion = 1.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

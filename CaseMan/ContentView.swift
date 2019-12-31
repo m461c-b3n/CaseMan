@@ -9,22 +9,17 @@
 import SwiftUI
 import StringExtensions
 
-fileprivate typealias StringToSingleWordsTransformer = (String) -> String
-
 struct ContentView: View {
-    
-    private static let captionColor = Color.gray
-    
+
     @State var singleWords: String = ""
-    @State var upperCamelCase: String = ""
     @State var lowerCamelCase: String = ""
+    @State var upperCamelCase: String = ""
     @State var lowerSnakeCase: String = ""
     @State var upperSnakeCase: String = ""
+    @State var lowerKebabCase: String = ""
+    @State var upperKebabCase: String = ""
     @State var upperCase: String = ""
     @State var lowerCase: String = ""
-    
-    private let camelCaseToSingleWords: StringToSingleWordsTransformer = { $0.camelCaseToWords().lowercased() }
-    private let snakeCaseToSingleWords: StringToSingleWordsTransformer = { $0.lowercased().replacingOccurrences(of: "_", with: " ") }
     
     var body: some View {
         VStack() {
@@ -35,33 +30,37 @@ struct ContentView: View {
             
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
+
                     Group {
-                        createEditableBlock(header: "single words", content: $singleWords, tranformer: { $0.lowercased() })
+                        createEditableBlock(header: "single words", content: $singleWords, variableNameCase: .words)
                         
-                        createEditableBlock(header: "UpperCamelCase", content: $upperCamelCase, tranformer: camelCaseToSingleWords)
-                        createEditableBlock(header: "lowerCamelCase", content: $lowerCamelCase, tranformer: camelCaseToSingleWords)
+                        createEditableBlock(header: "lowerCamelCase", content: $lowerCamelCase, variableNameCase: .lowerCamel)
+                        createEditableBlock(header: "UpperCamelCase", content: $upperCamelCase, variableNameCase: .upperCamel)
                         
-                        createEditableBlock(header: "lower_snake_case", content: $lowerSnakeCase, tranformer: snakeCaseToSingleWords)
-                        createEditableBlock(header: "UPPER_SNAKE_CASE", content: $upperSnakeCase, tranformer: snakeCaseToSingleWords)
+                        createEditableBlock(header: "lower_snake_case", content: $lowerSnakeCase, variableNameCase: .lowerSnake)
+                        createEditableBlock(header: "UPPER_SNAKE_CASE", content: $upperSnakeCase, variableNameCase: .upperSnake)
+                        
+                        createEditableBlock(header: "lower-kebab-case", content: $lowerKebabCase, variableNameCase: .lowerKebab)
+                        createEditableBlock(header: "UPPER-KEBAB-CASE", content: $upperKebabCase, variableNameCase: .upperKebab)
                     }
                     
                     Group {
-                        createStaticBlock(header: "CAPITALCASE (tap to copy)", content: $upperCase)
                         createStaticBlock(header: "lowercase (tap to copy)", content: $lowerCase)
+                        createStaticBlock(header: "CAPITALCASE (tap to copy)", content: $upperCase)
                     }
                 }.padding()
             }
         }
     }
     
-    private func createEditableBlock(header: String, content: Binding<String>, tranformer: @escaping StringToSingleWordsTransformer = { $0 }) -> some View {
+    private func createEditableBlock(header: String, content: Binding<String>, variableNameCase: String.VariableNameCase) -> some View {
         Group {
             Text("\(header):")
                 .modifier(CaptionTextStyle())
             HStack() {
-                TextField(header, text: content, onCommit: {
-                    self.setCases(with: tranformer(content.wrappedValue))
-                })
+                TextField(header, text: content) {
+                    self.setCases(with: content.wrappedValue, variableNameCase: variableNameCase)
+                }
                     .padding()
                     .copyOnTap(content)
                     .modifier(ContentTextFieldStyle())
@@ -85,15 +84,17 @@ struct ContentView: View {
         }
     }
     
-    // neutralized String is lowercased words seperated by single spaces
-    private func setCases(with singleWordString: String) {
-        logDebug("single word string: %{PUBLIC}@", singleWordString)
-        singleWords = singleWordString
-        lowerSnakeCase = singleWordString.replacingOccurrences(of: " ", with: "_")
-        upperSnakeCase = lowerSnakeCase.uppercased()
-        upperCamelCase = singleWordString.split(separator: " ").compactMap { $0.capitalized }.joined(separator: "")
-        lowerCamelCase = upperCamelCase.lowercasedFirstLetter()
-        upperCase = singleWordString.replacingOccurrences(of: " ", with: "").uppercased()
+    private func setCases(with string: String, variableNameCase: String.VariableNameCase) {
+
+        singleWords = string.transforming(from: variableNameCase, to: .words)
+        lowerCamelCase = string.transforming(from: variableNameCase, to: .lowerCamel)
+        upperCamelCase = string.transforming(from: variableNameCase, to: .upperCamel)
+        lowerSnakeCase = string.transforming(from: variableNameCase, to: .lowerSnake)
+        upperSnakeCase = string.transforming(from: variableNameCase, to: .upperSnake)
+        lowerKebabCase = string.transforming(from: variableNameCase, to: .lowerKebab)
+        upperKebabCase = string.transforming(from: variableNameCase, to: .upperKebab)
+        
+        upperCase = singleWords.replacingOccurrences(of: " ", with: "").uppercased()
         lowerCase = upperCase.lowercased()
     }
 }
